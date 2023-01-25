@@ -2,6 +2,7 @@ ARTEFACT	= target/avr-atmega32u4/release/deps/worduino_avr-0fc01cc05b3aa374
 OBJ 		:= obj-${shell $(CC) -dumpmachine}
 
 all: bad.log good.log
+	diff -u $?
 
 %.log: worduino-avr/%/worduino-avr.elf
 	make -C sim
