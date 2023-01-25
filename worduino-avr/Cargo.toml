@@ -1,0 +1,14 @@
+[package]
+name = "worduino-avr"
+version = "0.1.0"
+authors = ["Gergő ÉRDI <gergo@erdi.hu>"]
+
+[dependencies]
+avr-config = "2.0.1"
+avr-std-stub = "1.0"
+ruduino = { path = "ruduino" }
+avr-progmem = { version = "0.3.2", default-features = false, features = ["unsize"] }
+worduino-engine = { path = "worduino-engine" }
+
+[profile.release]
+lto = true
