@@ -1,5 +1,3 @@
-use avr_progmem::wrapper::ProgMem;
-
 pub const SCREEN_WIDTH: u8 = 128;
 pub const SCREEN_HEIGHT: u8 = 64;
 

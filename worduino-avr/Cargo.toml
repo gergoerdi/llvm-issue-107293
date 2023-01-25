@@ -8,7 +8,11 @@ avr-config = "2.0.1"
 avr-std-stub = "1.0"
 ruduino = { path = "ruduino" }
 avr-progmem = { version = "0.3.2", default-features = false, features = ["unsize"] }
-worduino-engine = { path = "worduino-engine" }
+worduino-engine = { path = "worduino-engine", default-features = false }
 
 [profile.release]
 lto = true
+
+[features]
+score = ["worduino-engine/score"]
+default = []

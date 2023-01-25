@@ -3,13 +3,13 @@ OBJ 		:= obj-${shell $(CC) -dumpmachine}
 
 all: bad.log good.log
 
-%.log: %.elf
+%.log: worduino-avr/%/worduino-avr.elf
 	make -C sim
 	sim/$(OBJ)/Main.elf $< > $@
 
-worduino-avr/$(ARTEFACT).%:
-	cd worduino-avr && cargo build --release
+worduino-avr/good/worduino-avr.elf:
+	cd worduino-avr && cargo build -Z unstable-options --out-dir good --release
 
-bad.%: worduino-avr/$(ARTEFACT).%
-	cp -f $< $@
+worduino-avr/bad/worduino-avr.elf:
+	cd worduino-avr && cargo build -Z unstable-options --out-dir bad --release --features score
 

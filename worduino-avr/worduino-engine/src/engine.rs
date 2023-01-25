@@ -223,24 +223,24 @@ impl BasicMonster {
 struct Player {
     e: Entity,
     lives: u8,
-    score: u16,
+    #[cfg(feature = "score")] score: u16,
     bullet: Option<Entity>,
 }
 
 impl Player {
-    fn start_pos() -> Entity {
-        Entity {
-            pos: (40, 40),
-            d: Dir::Left,
-        }
-    }
-
     fn new() -> Player {
         Player {
             e: Self::start_pos(),
             lives: 2,
-            score: 0,
+            #[cfg(feature = "score")] score: 0,
             bullet: None,
+        }
+    }
+
+    fn start_pos() -> Entity {
+        Entity {
+            pos: (40, 40),
+            d: Dir::Left,
         }
     }
 

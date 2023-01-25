@@ -5,3 +5,7 @@ authors = ["Gergő ÉRDI <gergo@erdi.hu>"]
 
 [dependencies]
 avr-progmem = { version = "0.3.2", default-features = false, features = ["unsize"] }
+
+[features]
+score = []
+default = []
